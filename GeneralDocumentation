@@ -1,7 +1,7 @@
 # To Do
 
-DC01 Server 2025 installed. Now it's time to do the set up.
-At the moment, it's just installed with no other configuration.
+DC01: ADDS installed. DNS next to do.
+DC02: Updates installed. Services and Roles still on the list.
 
 # Network
 
@@ -9,14 +9,13 @@ Sw-Lab-Internal : 10.10.10.1
 
 # Servers
 
-NAME		ROLE			    IP ADDRESS			STATUS			LOGIN
-DC01		AD DNS		    10.10.10.2			Installed		Administrator/#######
-DC02		DHCP		  	  10.10.10.3			VM created  Administrator/#######
-FS01		Fileserver  	  	
-MON01		Monitoring    
-Client01	Workstation  
-Host OS		My PC        
-
+NAME		ROLE			IP ADDRESS			STATUS			LOGIN
+DC01		AD DNS			10.10.10.2			-		
+DC02		DHCP			10.10.10.3			-
+FS01		Fileserver		
+MON01		Monitoring
+Client01	Workstation
+Host OS		My PC
 
 
 # Two Quick Things to Keep in Mind
@@ -30,7 +29,7 @@ Host OS		My PC
 
 File and Printer ICMP Inbound (Server AND an Winpy)
 
-# NetNAT on Win11 PC
+# NetNAT on Win11 PC Winpy
 PS C:\WINDOWS\system32> New-NetNat -Name "LabNAT" -InternalIPInterfaceAddressPrefix 10.10.10.0/24
 
 
