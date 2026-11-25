@@ -1,0 +1,48 @@
+# To Do
+
+DC01 Server 2025 installed. Now it's time to do the set up.
+At the moment, it's just installed with no other configuration.
+
+# Network
+
+Sw-Lab-Internal : 10.10.10.1
+
+# Servers
+
+NAME		ROLE			    IP ADDRESS			STATUS			LOGIN
+DC01		AD DNS		    10.10.10.2			Installed		Administrator/#######
+DC02		DHCP		  	  10.10.10.3			VM created  Administrator/#######
+FS01		Fileserver  	  	
+MON01		Monitoring    
+Client01	Workstation  
+Host OS		My PC        
+
+
+
+# Two Quick Things to Keep in Mind
+
+    Windows Firewall on the Host & VMs: By default, Windows blocks incoming ICMP (ping) requests until File and Printer Sharing is enabled or the firewall rule is allowed. If a ping fails even with matching IPs, check Windows Defender Firewall on the target machine.
+
+    Host DNS (Optional later): Once your Domain Controller (10.0.10.10) is up and running DNS, you can add 10.10.10.1 as the Preferred DNS server on your host's vEthernet (Lab-Internal) adapter if you want to manage the domain from your host PC using RSAT.
+
+
+# FW Rules
+
+File and Printer ICMP Inbound (Server AND an Winpy)
+
+# NetNAT on Win11 PC
+PS C:\WINDOWS\system32> New-NetNat -Name "LabNAT" -InternalIPInterfaceAddressPrefix 10.10.10.0/24
+
+
+Name                             : LabNAT
+ExternalIPInterfaceAddressPrefix :
+InternalIPInterfaceAddressPrefix : 10.10.10.0/24
+IcmpQueryTimeout                 : 30
+TcpEstablishedConnectionTimeout  : 1800
+TcpTransientConnectionTimeout    : 120
+TcpFilteringBehavior             : AddressDependentFiltering
+UdpFilteringBehavior             : AddressDependentFiltering
+UdpIdleSessionTimeout            : 120
+UdpInboundRefresh                : False
+Store                            : Local
+Active                           : True
